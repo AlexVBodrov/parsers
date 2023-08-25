@@ -52,7 +52,7 @@ def get_names_from_json(path2file):
             names.append(name)
             grades[name] = grade[value]
             
-            with open("digit_marks.json","w") as file: 
+            with open("exercise_1\digit_marks.json","w") as file: 
                 json.dump(grades, file, indent=4, ensure_ascii=False)
 
 
