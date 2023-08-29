@@ -16,3 +16,4 @@ import requests as r
 
 print(*[r.get(url='http://httpbin.org/user-agent', headers={'user-agent': ua().random}).text for i in range(5)])
 """
+
