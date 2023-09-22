@@ -2,12 +2,12 @@ import csv
 import requests
 from bs4 import BeautifulSoup
 
-save_file_path = 'scv_exer/res_2.csv'
+save_file_path = 'scv_exer/res_3.csv'
 # 1 ------------------------------------------------------
 with open(save_file_path, 'w', encoding='utf-8-sig', newline='') as file:
     writer = csv.writer(file, delimiter=';')
     writer.writerow([
-        'Наименование', 'Бренд', 'Форм-фактор', 'Емкость', 'Объём буф. памяти', 'Цена'])
+        'Наименование', 'Бренд', ' Категория', 'инфо_1', 'инфо_2', 'Цена'])
 # 1 ------------------------------------------------------
 
 # 2 ------------------------------------------------------
@@ -29,11 +29,11 @@ for i in range(1, 4 + 1):
     # 4------------------------------------------------------
 
     for item, descr, price  in zip(name, description, price):
-        # 'Наименование', 'Бренд', 'Форм-фактор', 'Емкость', 'Объём буф. памяти', 'Цена'
+        # 'Наименование', 'Бренд', ' Категория', 'инфо_1', 'инфо_2', 'Цена'
         flatten = item, *[x.split(':')[1].strip() for x in descr if x], price
         file = open(save_file_path, 'a', encoding='utf-8-sig', newline='')
         writer = csv.writer(file, delimiter=';')
         writer.writerow(flatten)
     file.close()
 
-print('Файл res.csv создан')
+print(f'Файл {save_file_path} создан')
